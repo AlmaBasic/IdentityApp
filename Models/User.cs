@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Models
 {
-    public class User: IdentityUser
+    public class User : IdentityUser
     {
         [Required]
         public string FirstName { get; set; }

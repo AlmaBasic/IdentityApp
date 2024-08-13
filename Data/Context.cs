@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-    public class Context: IdentityDbContext<User>
+    public class Context : IdentityDbContext<User>
     {
         public Context(DbContextOptions<Context> options) :base(options) { }
     }
