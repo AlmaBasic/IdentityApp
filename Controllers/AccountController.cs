@@ -46,7 +46,7 @@ namespace API.Controllers
             if (user.EmailConfirmed == false) return Unauthorized("Please confirm your email.");
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-            if(!result.Succeeded) return Unauthorized("Invalid username or password");
+            if(!result.Succeeded) return Unauthorized(new {  message = "Invalid username or password" });
 
             return CreateApplicationUserDto(user);
         }
@@ -63,12 +63,13 @@ namespace API.Controllers
                 LastName = model.LastName.ToLower(),
                 UserName = model.Email.ToLower(),
                 Email = model.Email.ToLower(),
+                EmailConfirmed = true //dodano
             };
 
             var result = await _userManager.CreateAsync(userToAdd, model.Password);
             if (!result.Succeeded) return BadRequest(result.Errors);
 
-            return Ok("Your account has been created, you can login.");
+            return Ok(new JsonResult(new { title = "Account Created", message = "Your account has been created, you can login." }));
         }
 
         #region Private Helper Methods
