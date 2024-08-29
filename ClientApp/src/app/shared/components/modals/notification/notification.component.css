@@ -1,0 +1,12 @@
+ .gradient-custom-2 {
+  background: #ffffff;
+  color: #000;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.gradient-custom-3{
+  background: linear-gradient(to right, #dd3675, #b44593);
+}
