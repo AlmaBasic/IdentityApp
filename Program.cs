@@ -12,6 +12,7 @@ using System.Text;
 using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,7 @@ builder.Services.AddDbContext<Context>(options =>
 
 
 builder.Services.AddScoped<API.Services.JWTService>();
+builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddIdentityCore<User>(options =>
 {
